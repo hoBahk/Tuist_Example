@@ -1,0 +1,27 @@
+//
+//  {{ name }}FeatureTests.swift
+//  {{ name }}Feature
+//
+//  Created by {{ author }} on {{ date }}.
+//
+
+import XCTest
+@testable import {{ name }}Feature
+
+final class {{ name }}Tests: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+        // 초기 설정 코드
+    }
+
+    override func tearDown() {
+        // 정리 코드
+        super.tearDown()
+    }
+
+    func testExample() {
+        // 예시 테스트
+        XCTAssertTrue(true)
+    }
+}

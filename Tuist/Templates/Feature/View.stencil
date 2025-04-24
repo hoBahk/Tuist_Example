@@ -1,0 +1,18 @@
+//
+//  {{ name }}View.swift
+//  {{ name }}Feature
+//
+//  Created by {{ author }} on {{ date }}.
+//
+
+import SwiftUI
+
+struct {{ name }}View: View {
+    var body: some View {
+        Text("{{ name }} View")
+    }
+}
+
+#Preview {
+    {{ name }}View()
+}

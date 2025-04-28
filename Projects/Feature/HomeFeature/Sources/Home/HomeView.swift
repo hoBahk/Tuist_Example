@@ -7,12 +7,26 @@
 
 import SwiftUI
 
-struct HomeView: View {
-    var body: some View {
-        Text("Home View")
+public struct HomeView: View {
+    @StateObject var viewModel: HomeViewModel
+
+    public init(viewModel: HomeViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
+    public var body: some View {
+        List(viewModel.users) { user in
+            Text(user.name)
+        }
+        .listStyle(.plain)
+        .task {
+            await viewModel.onAppear()
+        }
     }
 }
 
-#Preview {
-    HomeView()
+#Preview("Sample Users") {
+    let mockUseCase = MockUserUseCase()
+    let viewModel = HomeViewModel(useCase: mockUseCase)
+    return HomeView(viewModel: viewModel)
 }

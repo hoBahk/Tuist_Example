@@ -4,7 +4,7 @@ let project = Project(
     name: "App",
     settings: .settings(
         base: [
-            "SWIFT_VERSION": "4.2",
+            "SWIFT_VERSION": "5.9",
         ],
         defaultSettings: .recommended
     ),
@@ -14,14 +14,12 @@ let project = Project(
             destinations: .iOS,
             product: .app,
             bundleId: "io.tuist.App",
-            infoPlist: .extendingDefault(
-                with: [
-                    "UILaunchScreen": [
-                        "UIColorName": "",
-                        "UIImageName": "",
-                    ],
+            infoPlist: .extendingDefault(with: [
+                "NSAppTransportSecurity": [
+                    "NSAllowsArbitraryLoads": true
                 ]
-            ),
+                // ⚠️ UIApplicationSceneManifest 제거!
+            ]),
             sources: ["App/Sources/**"],
             resources: ["App/Resources/**"],
             dependencies: [

@@ -16,7 +16,9 @@ let project = Project(
             bundleId: "com.example.HomeRepository",
             sources: ["Sources/**"],
             dependencies: [
-                .project(target: "HomeDomain", path: "../../Domain/HomeDomain")
+                .project(target: "HomeDomain", path: "../../Domain/HomeDomain"),
+                .project(target: "Network", path: "../../Core/Network")
+                
             ]
         ),
         .target(

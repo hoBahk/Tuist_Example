@@ -11,10 +11,28 @@ let project = Project(
             destinations: .iOS,
             product: .app,
             bundleId: "com.example.tuist-example",
-            infoPlist: .default,
+            infoPlist: .extendingDefault(with: [
+                "UILaunchStoryboardName": "LaunchScreen",
+                "NSAppTransportSecurity": [
+                    "NSAllowsArbitraryLoads": true
+                ]
+            ]),
             sources: ["Sources/**"],
-            resources: [],
-            dependencies: []
+            resources: ["Resources/**"],
+            dependencies: [
+                .project(target: "HomeFeature", path: "../Feature/HomeFeature"),
+                .project(target: "HomeDomain", path: "../Domain/HomeDomain"),
+                .project(target: "HomeRepository", path: "../Data/HomeRepository"),
+                .project(target: "Network", path: "../Core/Network"),
+            ],
+            settings: .settings(
+                base: [
+                    "CODE_SIGN_STYLE": "Automatic",            // 자동 코드 서명
+//                    "DEVELOPMENT_TEAM": "W5GCLT5U2J",        // Team ID 설정
+//                    "CODE_SIGN_IDENTITY": "Apple Development"  // 인증서 타입 (선택 사항)
+                ],
+                defaultSettings: .recommended
+            ),
         ),
         .target(
             name: "AppTests",

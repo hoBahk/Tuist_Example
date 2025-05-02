@@ -15,13 +15,17 @@ public struct HomeView: View {
     }
 
     public var body: some View {
+        
+        Button("불러오기") {
+            Task {
+                await viewModel.onAppear()
+            }
+        }
+        
         List(viewModel.users) { user in
             Text(user.name)
         }
         .listStyle(.plain)
-        .task {
-            await viewModel.onAppear()
-        }
     }
 }
 

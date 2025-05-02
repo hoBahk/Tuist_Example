@@ -7,7 +7,7 @@
 
 import Foundation
 
-import Network
+import NetworkCore
 import HomeDomain
 
 public final class UserRepositoryImpl: UserRepository {

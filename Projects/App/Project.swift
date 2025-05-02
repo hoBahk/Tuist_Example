@@ -21,9 +21,7 @@ let project = Project(
             resources: ["Resources/**"],
             dependencies: [
                 .project(target: "HomeFeature", path: "../Feature/HomeFeature"),
-                .project(target: "HomeDomain", path: "../Domain/HomeDomain"),
                 .project(target: "HomeRepository", path: "../Data/HomeRepository"),
-                .project(target: "Network", path: "../Core/Network"),
             ],
             settings: .settings(
                 base: [
@@ -32,7 +30,7 @@ let project = Project(
 //                    "CODE_SIGN_IDENTITY": "Apple Development"  // 인증서 타입 (선택 사항)
                 ],
                 defaultSettings: .recommended
-            ),
+            )
         ),
         .target(
             name: "AppTests",

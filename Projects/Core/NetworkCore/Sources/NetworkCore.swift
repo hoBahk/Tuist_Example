@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class Network: NetworkService {
+public final class NetworkCore: NetworkService {
     public init() {}
 
     public func request(endpoint: String) async throws -> Data {

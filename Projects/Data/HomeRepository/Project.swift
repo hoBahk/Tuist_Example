@@ -17,8 +17,7 @@ let project = Project(
             sources: ["Sources/**"],
             dependencies: [
                 .project(target: "HomeDomain", path: "../../Domain/HomeDomain"),
-                .project(target: "Network", path: "../../Core/Network")
-                
+                .project(target: "NetworkCore", path: "../../Core/NetworkCore")
             ]
         ),
         .target(
